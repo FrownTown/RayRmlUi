@@ -43,7 +43,7 @@ As RmlUi is based on the conventions of modern web-design, each RmlUi context is
 
 ### Layout / context
 
-- If any parts of a context do not need to be aware of each other, they should be split into separate contexts. Many small contexts can be rendered every frame cheaply, but a single large context can cause severe performance issues because it doesn't benefit from GPU parallelization.
+- If parts of the UI do not need to interact through the same DOM, they should be split into separate RmlUi contexts. Smaller independent contexts can be invalidated, rebuilt, and rendered independently, allowing the backend to submit smaller GPU work batches instead of forcing one large context to be walked, rebuilt, and redrawn as a single unit.
 - Data-For loops are inherently poorly performing and should be avoided in large DOM trees. If you want to nest a Data-For loop producing text inside a larger DOM without the performance impact, you can make the Data-For a separate context, then use SuppressAutoLayout() on the text rendered by the Data-For loop and manually position it relative to the DOM you want appearing as its container.
 - SuppressAutoLayout() should also be used on any text element that gets frequently updated and any high-frequency text updates should sit in fixed-size boxes. This allows the renderer to replace just that data row rather than walking the entire DOM to reflow the layout.
 - Recommend gating layout recalculation and GPU rendering with separate dirty flags so you can recalculate layout without issuing a GPU render and vice versa.
