@@ -1,6 +1,8 @@
 # rayRmlUi
 
-A [Raylib](https://github.com/raysan5/raylib) module providing a backend for [RmlUi](https://github.com/mikke89/RmlUi) — the HTML/CSS-based UI library. Provides render, system, and input interfaces so RmlUi can run inside a Raylib application with minimal extra effort.
+rayRmlUi is a [Raylib](https://github.com/raysan5/raylib) module providing a backend for [RmlUi](https://github.com/mikke89/RmlUi) — the HTML/CSS-based UI library. Provides render, system, and input interfaces so RmlUi can run inside a Raylib application with minimal extra effort.
+
+rayRmlUi was originally developed as part of a larger Raylib project and later extracted into this standalone reusable library.
 
 The API follows Raylib's `Init/Close/IsReady` convention for ease of use.
 
